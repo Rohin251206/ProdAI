@@ -4,7 +4,7 @@ import google.generativeai as genai
 # --------------------------
 # CONFIGURE GEMINI
 # --------------------------
-genai.configure(api_key="AIzaSyCuLJSh_-VZf1pcKy2utbT1Mf-5nKqyE0I")
+genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
 model = genai.GenerativeModel("gemini-2.5-flash")
 
@@ -68,4 +68,5 @@ if st.button("Generate a 7-Day Productivity Challenge"):
         challenge_text = challenge_response.text
 
     st.write(challenge_text)
+
     st.download_button("Download 7-Day Challenge", challenge_text, file_name="7_Day_Challenge.txt")
